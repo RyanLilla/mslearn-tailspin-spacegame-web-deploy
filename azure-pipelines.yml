@@ -26,11 +26,13 @@ stages:
       inputs:
         version: '$(dotnetSdkVersion)'
 
-    - task: Npm@1
-      displayName: 'Run npm install'
-      inputs:
-        verbose: false
-      continueOnError: true
+    # - task: Npm@1
+    #   displayName: 'Run npm install'
+    #   inputs:
+    #     verbose: false
+    #   continueOnError: true
+
+    - script: npm install
 
     - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
       displayName: 'Compile Sass assets'
